@@ -191,8 +191,11 @@ def parse_steam_global_achievements(tokens, index=0):
 
     return result, index
 
-def fetch_steam_global_achievements(gameid):
+def fetch_steam_global_achievements(gameid, verbose=False):
     global_achievements_url = f'https://steamcommunity.com/stats/{gameid}/achievements/'
+
+    if verbose:
+        print("Fetching global achievement stats")
 
     response = fetch_url(global_achievements_url)
 
@@ -224,12 +227,18 @@ def parse_form(tokens, index):
 
     return url, index + 1;
 
-def fetch_steam_community_posters(gameid):
+def fetch_steam_community_posters(gameid, verbose=False):
     url = f'https://steamcommunity.com/app/{gameid}'
 
     authors = []
 
+    page = 1
+
     while url:
+        if verbose:
+            print(f"Fetching Steam Community content (page {page})")
+            page += 1
+
         response = fetch_url(url)
 
         data = response.read()
@@ -375,9 +384,11 @@ def parse_steam_player_achievements(tokens, index=0):
 
     return result, index
 
-def fetch_steam_player_achievements(gameid, player):
+def fetch_steam_player_achievements(gameid, player, verbose=False):
     url = f'https://steamcommunity.com/profiles/{player}/stats/{gameid}/achievements/'
 
+    if verbose:
+        print(f"Fetching achievement stats for player {player}")
     response = fetch_url(url)
 
     data = response.read()
@@ -402,12 +413,12 @@ def fetch_steam_player_achievements(gameid, player):
 
     return result
 
-def fetch_steam_achievement_info(gameid):
-    global_info = fetch_steam_global_achievements(gameid)
+def fetch_steam_achievement_info(gameid, verbose=False):
+    global_info = fetch_steam_global_achievements(gameid, verbose)
 
     sequences = []
-    for author in fetch_steam_community_posters(gameid):
-        seq = fetch_steam_player_achievements(gameid, author)
+    for author in fetch_steam_community_posters(gameid, verbose):
+        seq = fetch_steam_player_achievements(gameid, author, verbose)
         if seq:
             sequences.append(seq)
         if len(sequences) >= 20:
