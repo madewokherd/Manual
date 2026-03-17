@@ -417,7 +417,11 @@ def fetch_steam_achievement_info(gameid, verbose=False):
     global_info = fetch_steam_global_achievements(gameid, verbose)
 
     sequences = []
+    seen_players = set()
     for author in fetch_steam_community_posters(gameid, verbose):
+        if author in seen_players:
+            continue
+        seen_players.add(author)
         seq = fetch_steam_player_achievements(gameid, author, verbose)
         if seq:
             sequences.append(seq)
