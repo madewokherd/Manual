@@ -227,17 +227,17 @@ def parse_form(tokens, index):
 
     return url, index + 1;
 
-def fetch_steam_community_posters(gameid, verbose=False):
+def fetch_steam_community_posters(gameid, verbose=False, max_page=25):
     url = f'https://steamcommunity.com/app/{gameid}'
 
     authors = []
 
     page = 1
 
-    while url:
+    while url and page <= max_page:
         if verbose:
             print(f"Fetching Steam Community content (page {page})")
-            page += 1
+        page += 1
 
         response = fetch_url(url)
 
@@ -421,8 +421,6 @@ def fetch_steam_achievement_info(gameid, verbose=False):
         seq = fetch_steam_player_achievements(gameid, author, verbose)
         if seq:
             sequences.append(seq)
-        if len(sequences) >= 20:
-            break
 
     # global achievements are already sorted by percentage, presumably even if the rounded percentage is the same
     sequences.append([[x['name']] for x in global_info])
