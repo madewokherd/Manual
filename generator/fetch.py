@@ -224,8 +224,8 @@ def parse_form(tokens, index):
 
     return url, index + 1;
 
-def fetch_steam_review_authors(gameid):
-    url = f'https://steamcommunity.com/app/{gameid}/reviews/?p=1&browsefilter=toprated'
+def fetch_steam_community_posters(gameid):
+    url = f'https://steamcommunity.com/app/{gameid}'
 
     authors = []
 
@@ -240,7 +240,8 @@ def fetch_steam_review_authors(gameid):
 
         # we only really care about the author id's, so we can skip any real parsing
         for i in range(len(tokens)):
-            if tokens[i].kind == STARTTAG and tokens[i].tag == 'div' and 'apphub_CardContentAuthorName' in tokens[i].attrs.get('class', ''):
+            if tokens[i].kind == STARTTAG and tokens[i].tag == 'div' and 'apphub_CardContentAuthorName' in tokens[i].attrs.get('class', '') and \
+                tokens[i+1].kind != DATA:
                 assert(tokens[i+1].kind == STARTTAG)
                 assert(tokens[i+1].tag == 'a')
                 yield tokens[i+1].attrs['href'].rstrip('/').rsplit('/', 1)[1]
@@ -405,7 +406,7 @@ def fetch_steam_achievement_info(gameid):
     global_info = fetch_steam_global_achievements(gameid)
 
     sequences = []
-    for author in fetch_steam_review_authors(gameid):
+    for author in fetch_steam_community_posters(gameid):
         seq = fetch_steam_player_achievements(gameid, author)
         if seq:
             sequences.append(seq)
