@@ -255,6 +255,11 @@ def parse_steam_player_achievement_row(tokens, index):
     assert('achieveRow' in tokens[index].attrs['class'])
     index += 1
 
+    # <div class="achieveHiddenBox">
+    if tokens[index].kind == STARTTAG and tokens[index].tag == 'div' and 'achieveHiddenBox' in tokens[index].attrs.get('class', ''):
+        index += 1
+        return {'name': '<hidden achievements>', 'unlock_time': None}, index
+
     # <div class="achieveImgHolder">
     assert(tokens[index].kind == STARTTAG)
     assert(tokens[index].tag == "div")
