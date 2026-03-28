@@ -18,6 +18,9 @@ parser.add_argument('--player-ids', nargs='*',
 
 # Output
 
+parser.add_argument('--json-in', type=str,
+    help="Read information from JSON instead of fetching it")
+
 parser.add_argument('--raw-json-out', type=str,
     help="Output fetched information in JSON format")
 
@@ -43,7 +46,11 @@ def main(argv=None):
         urlparts = urllib.parse.urlparse(url)
         recognized = False
         if len(urlparts.scheme) in (0, 1):
-            pass # TODO: handle json filename
+            if args.json_in:
+                print("ERROR: Multiple games specified")
+                sys.exit(1)
+            else:
+                args.json_in = url
         elif urlparts.scheme in ('http', 'https'):
             parts = urlparts.path.strip('/').split('/')
             if urlparts.netloc == 'store.steampowered.com':
@@ -67,11 +74,20 @@ def main(argv=None):
             print("ERROR: Unrecognized URL:", url, file=sys.stderr)
             sys.exit(1)
 
-    if args.steam_app_id:
+    if sum(1 for argname in ('steam_app_id', 'json_in') if getattr(args, argname)) > 1:
+        print("ERROR: Multiple games specified")
+        sys.exit(1)
+    elif args.steam_app_id:
         community_page_count = args.steam_players_from_community or 0
         info = fetch.fetch_steam_achievement_info(args.steam_app_id, verbose=True, players=player_ids, community_page_count=community_page_count)
+    elif args.json_in:
+        if args.json_in == '-':
+            info = json.load(sys.stdin)
+        else:
+            with open(args.json_in, 'r') as infile:
+                info = json.load(infile)
     else:
-        print("ERROR: You must specify a game using a URL or --steam-app-id")
+        print("ERROR: You must specify a game using a URL, --steam-app-id, or --json-in")
         parser.print_help()
         sys.exit(1)
 
