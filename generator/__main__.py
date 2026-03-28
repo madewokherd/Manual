@@ -16,6 +16,11 @@ parser.add_argument('url', nargs='*',
 parser.add_argument('--player-ids', nargs='*',
     help="One or more IDs of players used to deduce achievement requirements")
 
+# Output
+
+parser.add_argument('--raw-json-out', type=str,
+    help="Output fetched information in JSON format")
+
 # Steam-specific
 parser.add_argument('--steam-app-id', type=int,
     help="The Steam App ID of the game")
@@ -70,7 +75,15 @@ def main(argv=None):
         parser.print_help()
         sys.exit(1)
 
-    print(json.dumps(info, indent=2))
+    if args.raw_json_out:
+        if args.raw_json_out == '-':
+            sys.stdout.write(json.dumps(info, indent=2))
+        else:
+            with open(args.raw_json_out, 'w') as outfile:
+                outfile.write(json.dumps(info, indent=2))
+    else:
+        # TODO: Output into src/data
+        print(json.dumps(info, indent=2))
 
 if __name__ == '__main__':
     main()
