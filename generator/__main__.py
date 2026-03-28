@@ -1,4 +1,7 @@
+from . import fetch
+
 import argparse
+import json
 import sys
 import urllib.parse
 
@@ -36,7 +39,14 @@ def main(argv=None):
             print("ERROR: Unrecognized URL:", url, file=sys.stderr)
             sys.exit(1)
 
-    print(args.steam_app_id)
+    if args.steam_app_id:
+        info = fetch.fetch_steam_achievement_info(args.steam_app_id)
+    else:
+        print("ERROR: You must specify a game using a URL or --steam-app-id")
+        parser.print_help()
+        sys.exit(1)
+
+    print(json.dumps(info, indent=2))
 
 if __name__ == '__main__':
     main()

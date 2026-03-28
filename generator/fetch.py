@@ -413,21 +413,20 @@ def fetch_steam_player_achievements(gameid, player, verbose=False):
 
     return result
 
-def fetch_steam_achievement_info(gameid, verbose=False):
+def fetch_steam_achievement_info(gameid, players=None, steam_community_page=0, verbose=False):
     global_info = fetch_steam_global_achievements(gameid, verbose)
 
     sequences = []
     seen_players = set()
-    for author in fetch_steam_community_posters(gameid, verbose):
-        if author in seen_players:
-            continue
-        seen_players.add(author)
-        seq = fetch_steam_player_achievements(gameid, author, verbose)
-        if seq:
-            sequences.append(seq)
 
-    # global achievements are already sorted by percentage, presumably even if the rounded percentage is the same
-    sequences.append([[x['name']] for x in global_info])
+    if steam_community_page:
+        for author in fetch_steam_community_posters(gameid, verbose=verbose, max_page=steam_community_page):
+            if author in seen_players:
+                continue
+            seen_players.add(author)
+            seq = fetch_steam_player_achievements(gameid, author, verbose)
+            if seq:
+                sequences.append(seq)
 
     return {'achievement_info': global_info, 'sequences': sequences}
 
