@@ -16,6 +16,8 @@ parser.add_argument('url', nargs='*',
 # Steam-specific
 parser.add_argument('--steam-app-id', type=int,
     help="The Steam App ID of the game")
+parser.add_argument('--steam-players-from-community', type=int,
+    help="Number of Steam Community pages to fetch to discover players")
 
 def main(argv=None):
     args = parser.parse_args(argv)
@@ -40,7 +42,8 @@ def main(argv=None):
             sys.exit(1)
 
     if args.steam_app_id:
-        info = fetch.fetch_steam_achievement_info(args.steam_app_id)
+        community_page_count = args.steam_players_from_community or 0
+        info = fetch.fetch_steam_achievement_info(args.steam_app_id, verbose=True, community_page_count=community_page_count)
     else:
         print("ERROR: You must specify a game using a URL or --steam-app-id")
         parser.print_help()
