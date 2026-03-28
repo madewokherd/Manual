@@ -419,6 +419,15 @@ def fetch_steam_achievement_info(gameid, players=None, community_page_count=0, v
     sequences = []
     seen_players = set()
 
+    if players:
+        for player in players:
+            if player in seen_players:
+                continue
+            seen_players.add(player)
+            seq = fetch_steam_player_achievements(gameid, player, verbose)
+            if seq:
+                sequences.append(seq)
+
     if community_page_count:
         for author in fetch_steam_community_posters(gameid, verbose=verbose, max_page=community_page_count):
             if author in seen_players:
