@@ -3,7 +3,7 @@
 GAMENAME=$(jq -r '.game' src/data/game.json)
 AUTHOR=$(jq -r '.creator' src/data/game.json)
 
-BASENAME=manual_${GAMENAME}_${AUTHOR}
+BASENAME=$(echo "manual_${GAMENAME}_${AUTHOR}" | tr '[:upper:]' '[:lower:]')
 
 rm ${BASENAME}
 rm ${BASENAME}.apworld
