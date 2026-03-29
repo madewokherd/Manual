@@ -1,288 +1,256 @@
-{
-	"$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.locations.schema.json",
-    "data": [
-        {
-            "name": "Example_Range decide the amount of items required for this location",
-            "requires": "{OptionCount(Item Name for OptionCount Example, Example_Range)}"
-        },
-        {
-            "name": "Beat the Game - Ryu",
-            "category": ["Starter Team", "Left Side"],
-            "region": "ExampleRegion"
-        },
-        {
-            "name": "Beat the Game - Chun-Li",
-            "category": ["Starter Team", "Left Side"],
-            "requires": "|Chun-Li| or {YamlCompare(Example_Choice == 1)}"
-        },
-        {
-            "name": "Beat the Game - Akuma",
-            "category": ["Starter Team", "Left Side"],
-            "requires": "|Akuma| or {YamlCompare(Example_Toggle != True)}"
-        },
-
-        {
-            "name": "Beat the Game - Jill",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Jill| and {ItemValue(star:5)}"
-        },
-        {
-            "name": "Beat the Game - Shuma-Gorath",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Shuma-Gorath|",
-            "hint_entrance": "Unlock Shuma-Gorath"
-        },
-        {
-            "name": "Beat the Game - Nemesis T-Type",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Nemesis T-Type|"
-        },
-        {
-            "name": "Beat the Game - Firebrand",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Firebrand|"
-        },
-        {
-            "name": "Beat the Game - Strider Hiryu",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Strider Hiryu|"
-        },
-        {
-            "name": "Beat the Game - Phoenix Wright",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Phoenix Wright|"
-        },
-        {
-            "name": "Beat the Game - Nova",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Nova|"
-        },
-        {
-            "name": "Beat the Game - Ghost Rider",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Ghost Rider|"
-        },
-        {
-            "name": "Beat the Game - Hawkeye",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Hawkeye|"
-        },
-        {
-            "name": "Beat the Game - Doctor Strange",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Doctor Strange|"
-        },
-        {
-            "name": "Beat the Game - Chris",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Chris|"
-        },
-        {
-            "name": "Beat the Game - Arthur",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Arthur|"
-        },
-        {
-            "name": "Beat the Game - Frank West",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Frank West|"
-        },
-        {
-            "name": "Beat the Game - Vergil",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Vergil|"
-        },
-        {
-            "name": "Beat the Game - Iron Fist",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Iron Fist|"
-        },
-        {
-            "name": "Beat the Game - Rocket Raccoon",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Rocket Raccoon|"
-        },
-        {
-            "name": "Beat the Game - Captain America",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Captain America|"
-        },
-        {
-            "name": "Beat the Game - Dormammu",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Dormammu|"
-        },
-        {
-            "name": "Beat the Game - Wesker",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Wesker|"
-        },
-        {
-            "name": "Beat the Game - Zero",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Zero|"
-        },
-        {
-            "name": "Beat the Game - Dante",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Dante|"
-        },
-        {
-            "name": "Beat the Game - Deadpool",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Deadpool| or {YamlEnabled(free_deadpool)}"
-        },
-        {
-            "name": "Beat the Game - Wolverine",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Wolverine|"
-        },
-        {
-            "name": "Beat the Game - Iron Man",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Iron Man|"
-        },
-        {
-            "name": "Beat the Game - Doctor Doom",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Doctor Doom|"
-        },
-        {
-            "name": "Beat the Game - Morrigan",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Morrigan|"
-        },
-        {
-            "name": "Beat the Game - Tron",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Tron|"
-        },
-        {
-            "name": "Beat the Game - Trish",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Trish|"
-        },
-        {
-            "name": "Beat the Game - X-23",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|X-23|"
-        },
-        {
-            "name": "Beat the Game - Storm",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Storm|"
-        },
-        {
-            "name": "Beat the Game - Thor",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Thor|"
-        },
-        {
-            "name": "Beat the Game - M.O.D.O.K.",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|M.O.D.O.K.|"
-        },
-        {
-            "name": "Beat the Game - Felicia",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Felicia|"
-        },
-        {
-            "name": "Beat the Game - Spencer",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Spencer|"
-        },
-        {
-            "name": "Beat the Game - Viewtiful Joe",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Viewtiful Joe|"
-        },
-        {
-            "name": "Beat the Game - Spider-Man",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Spider-Man|",
-            "prehint": true
-        },
-        {
-            "name": "Beat the Game - Sentinel",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Sentinel|"
-        },
-        {
-            "name": "Beat the Game - Hulk",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Hulk|"
-        },
-        {
-            "name": "Beat the Game - Super-Skrull",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Super-Skrull|"
-        },
-        {
-            "name": "Beat the Game - Hsien-Ko",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Hsien-Ko|"
-        },
-        {
-            "name": "Beat the Game - Haggar",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Haggar|"
-        },
-        {
-            "name": "Beat the Game - C. Viper",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|C. Viper|"
-        },
-        {
-            "name": "Beat the Game - Amaterasu",
-            "category": ["Unlocked Teams", "Left Side"],
-            "requires": "|Amaterasu|"
-        },
-        {
-            "name": "Beat the Game - Phoenix",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Phoenix|"
-        },
-        {
-            "name": "Beat the Game - Magneto",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Magneto|"
-        },
-        {
-            "name": "Beat the Game - She-Hulk",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|She-Hulk|"
-        },
-        {
-            "name": "Beat the Game - Taskmaster",
-            "category": ["Unlocked Teams", "Right Side"],
-            "requires": "|Taskmaster|"
-        },
-
-        {
-            "name": "We Saved the World!",
-            "victory": true,
-            "category": ["All Characters Complete!"],
-            "requires": "|Marvel event| and |Capcom event|"
-        },
-        {
-            "name": "Marvel%",
-            "victory": true,
-            "category": ["All Characters Complete!"],
-            "requires": "|Marvel event|"
-        },
-        {
-            "name": "Capcom%",
-            "victory": true,
-            "category": ["All Characters Complete!"],
-            "requires": "|Capcom event|"
-        },
-        {
-            "name": "Stars%",
-            "victory": true,
-            "category": ["All Characters Complete!"],
-            "requires": "{ItemValue(star:10)} and {ItemValue(coins:10)}"
-        }
-    ]
-}
-
+[
+  {
+    "name": "Level-Up: 6 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Level-Up: 7 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade| AND |Health Scroll|"
+  },
+  {
+    "name": "Level-Up: 8 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:2| AND |Attack Upgrade| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 9 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:3| AND |Attack Upgrade:2| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 10 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:4| AND |Attack Upgrade:3| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 11 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:5| AND |Attack Upgrade:4| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 12 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:6| AND |Attack Upgrade:5| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 13 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:7| AND |Attack Upgrade:6| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Level-Up: 14 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:8| AND |Attack Upgrade:7| AND |Health Scroll| AND |Chest Key| AND |Mine Scroll|"
+  },
+  {
+    "name": "Level-Up: 15 HP",
+    "category": [
+      "Level-Up"
+    ],
+    "requires": "|Health Upgrade:9| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Mine Scroll| AND (|Rat Scroll| OR |Slime Scroll|)"
+  },
+  {
+    "name": "Rat (1)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Bat (2)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Skeleton (3)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Gargoyle (4)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Green Slime (5)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Minotaur (6)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Attack Upgrade|"
+  },
+  {
+    "name": "Guardian (7)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade| AND |Attack Upgrade:2| AND |Health Scroll|"
+  },
+  {
+    "name": "Purple Slime (8)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:2| AND |Attack Upgrade:3| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Romeo (9)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:3| AND |Attack Upgrade:4| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Juliet (9)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:3| AND |Attack Upgrade:4| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Mine King (10)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:4| AND |Attack Upgrade:5| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Rat King (5)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade| AND |Health Scroll|"
+  },
+  {
+    "name": "Gazer (5)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade| AND |Health Scroll|"
+  },
+  {
+    "name": "Slime Wizard (1)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:2| AND |Attack Upgrade:3| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Mimic (11)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:5| AND |Attack Upgrade:6| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Dragon (13)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade:7| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Gnome's Treasure (9)",
+    "category": [
+      "Treasure"
+    ],
+    "requires": "|Health Upgrade:5| AND |Attack Upgrade:3| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Dragon Egg (3)",
+    "category": [
+      "Enemy"
+    ],
+    "requires": "|Health Upgrade| AND |Health Scroll|"
+  },
+  {
+    "name": "Ring (1)",
+    "category": [
+      "Treasure"
+    ],
+    "requires": ""
+  },
+  {
+    "name": "Lovers Survive",
+    "category": [
+      "Stamp"
+    ],
+    "requires": "|Health Upgrade:8| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Mine Scroll|"
+  },
+  {
+    "name": "Clear Board",
+    "category": [
+      "Stamp"
+    ],
+    "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Mine Scroll| AND (|Rat Scroll| OR |Slime Scroll|)"
+  },
+  {
+    "name": "Future Generation",
+    "category": [
+      "Stamp"
+    ],
+    "requires": "|Health Upgrade:8| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND (|Rat Scroll| OR |Slime Scroll|) AND |Mine Scroll|"
+  },
+  {
+    "name": "Rat Pacifist",
+    "category": [
+      "Stamp"
+    ],
+    "requires": "|Health Upgrade:8| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Rat Scroll| AND |Slime Scroll| AND |Mine Scroll|"
+  },
+  {
+    "name": "Coins (5)",
+    "category": [
+      "Treasure"
+    ],
+    "requires": "|Health Upgrade| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "Defeat Dragon",
+    "category": [
+      "Victory"
+    ],
+    "victory": true,
+    "requires": "|Health Upgrade:7| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key|"
+  },
+  {
+    "name": "All Stamps",
+    "category": [
+      "Victory"
+    ],
+    "victory": true,
+    "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Rat Scroll| AND |Slime Scroll| AND |Mine Scroll|"
+  }
+]

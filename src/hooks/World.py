@@ -54,6 +54,8 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove: list[str] = [] # List of location names
 
     # Add your code here to calculate which locations to remove
+    if get_option_value(multiworld, player, "goal") == 0: #defeat dragon
+        locationNamesToRemove.extend(("Dragon (13)", "Lovers Survive", "Clear Board", "Future Generation", "Rat Pacifist"))
 
     for region in multiworld.regions:
         if region.player == player:
