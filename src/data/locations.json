@@ -252,5 +252,12 @@
     ],
     "victory": true,
     "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Rat Scroll| AND |Slime Scroll| AND |Mine Scroll|"
+  },
+  {
+    "name": "Full Clear",
+    "category": [
+    ],
+    "victory": true,
+    "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Mine Scroll| AND (|Rat Scroll| OR |Slime Scroll|)"
   }
 ]
