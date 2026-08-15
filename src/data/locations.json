@@ -214,7 +214,7 @@
     "category": [
       "Stamp"
     ],
-    "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Mine Scroll| AND (|Rat Scroll| OR |Slime Scroll|)"
+    "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Mine Scroll| AND |Rat Scroll| AND |Slime Scroll|"
   },
   {
     "name": "Future Generation",
@@ -254,7 +254,7 @@
     "requires": "|Health Upgrade:10| AND |Attack Upgrade:8| AND |Health Scroll| AND |Chest Key| AND |Reveal Scroll| AND |Rat Scroll| AND |Slime Scroll| AND |Mine Scroll|"
   },
   {
-    "name": "Full Clear",
+    "name": "Max Score",
     "category": [
     ],
     "victory": true,
