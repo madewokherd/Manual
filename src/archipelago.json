@@ -1,7 +1,7 @@
 {
-  "game": "Manual: Dragonsweeper",
+  "game": "Manual: DoTasks",
   "compatible_version": 5,
   "version": 7,
-  "world_version": "1.1.1",
+  "world_version": "1.0",
   "authors": ["madewokherd"]
 }

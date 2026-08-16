@@ -1,8 +1,8 @@
 {
   "$schema": "https://github.com/ManualForArchipelago/Manual/raw/main/schemas/Manual.game.schema.json",
-  "game": "Dragonsweeper",
+  "game": "DoTasks",
   "creator": "madewokherd",
-  "filler_item_name": "Pencil",
+  "filler_item_name": "System Idle Process",
   "starting_items": [],
   "death_link": true
 }

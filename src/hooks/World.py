@@ -54,15 +54,12 @@ def after_create_regions(world: World, multiworld: MultiWorld, player: int):
     locationNamesToRemove: list[str] = [] # List of location names
 
     # Add your code here to calculate which locations to remove
-    if get_option_value(multiworld, player, "goal") == 0: #defeat dragon
-        locationNamesToRemove.extend(("Dragon (13)", "Lovers Survive", "Clear Board", "Future Generation", "Rat Pacifist"))
-    elif get_option_value(multiworld, player, "goal") == 2: #Full Clear
-        locationNamesToRemove.append("Clear Board")
+    num_tasks = get_option_value(multiworld, player, "num_tasks")
 
     for region in multiworld.regions:
         if region.player == player:
             for location in list(region.locations):
-                if location.name in locationNamesToRemove:
+                if location.name.startswith("Task ") and int(location.name.split()[1]) > get_option_value(multiworld, player, "num_tasks"):
                     region.locations.remove(location)
 
 # This hook allows you to access the item names & counts before the items are created. Use this to increase/decrease the amount of a specific item in the pool
@@ -90,8 +87,16 @@ def before_create_items_filler(item_pool: list, world: World, multiworld: MultiW
     # Because multiple copies of an item can exist, you need to add an item name
     # to the list multiple times if you want to remove multiple copies of it.
 
-    for itemName in itemNamesToRemove:
-        item = next(i for i in item_pool if i.name == itemName)
+    num_tasks = get_option_value(multiworld, player, "num_tasks")
+
+    for item in list(item_pool):
+        if item.name.startswith("Task ") and int(item.name.split()[1]) > get_option_value(multiworld, player, "num_tasks"):
+            remove_specific_item(item_pool, item)
+
+    num_starting = get_option_value(multiworld, player, "starting_tasks")
+
+    for item in world.random.sample(item_pool, num_starting):
+        multiworld.push_precollected(item)
         remove_specific_item(item_pool, item)
 
     return item_pool

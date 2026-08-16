@@ -21,4 +21,30 @@
             }
         }
     },
+    "user": {
+        "num_tasks": {
+            "display_name": "Number of Tasks",
+            "description": ["The number of task items and locations to include"],
+            "type": "Range",
+            "range_start": 1,
+            "range_end": 999,
+            "default": 10
+        },
+        "starting_tasks": {
+            "display_name": "Number of Starting tasks",
+            "description": ["The number of task items to receive at the start"],
+            "type": "Range",
+            "range_start": 0,
+            "range_end": 999,
+            "default": 1
+        },
+        "completion_percentage": {
+            "display_name": "Completion percentage",
+            "description": ["The percentage of tasks that must be completed to win"],
+            "type": "Range",
+            "range_start": 0,
+            "range_end": 100,
+            "default": 100
+        }
+    }
 }
